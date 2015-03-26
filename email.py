@@ -5,6 +5,7 @@ from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import parseaddr, formataddr
 import smtplib
+import getpass
 
 def _format_addr(s):
     name, addr = parseaddr(s)
@@ -13,7 +14,8 @@ def _format_addr(s):
         addr.encode('utf-8') if isinstance(addr, unicode) else addr))
 
 from_addr = raw_input('From: ')
-password = raw_input('Password: ')
+#password = raw_input('Password: ')
+password = getpass.getpass('Password: ')
 to_addr = raw_input('To: ')
 smtp_server = raw_input('SMTP server: ')
 
